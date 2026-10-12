@@ -26,6 +26,17 @@ public class ProdutoController {
             }
     }
 
+    @GetMapping("/produtos")
+    public ResponseEntity<?> verificarPorId (int id){
+        Produto produto = produtoService.buscaPorId(id);
+        if (produto == null){
+            return ResponseEntity.status(404).body("Valor Nulo, informe um id corretamente");
+        }else{
+            return ResponseEntity.status(200).body(produto);
+        }
+    }
+
+
 
     @GetMapping("/produtos")
     public List<Produto> listar(){

@@ -23,4 +23,13 @@ public class ProdutoService {
         }
         return true;
     }
+
+    public Produto buscaPorId (int id){
+        for (Produto produto : produtos){
+                if (id == produto.getId()){
+                    return produto;
+            }
+        }
+        return null;
+    }
 }
